@@ -15,13 +15,13 @@
     <div class="absolute h-100" id="borobudur">
       <img src="src/image/Slide 1/borobudur.png" alt="" fetchpriority="high" />
     </div>
-    <div class="fixed h-100 top-7 left-7 w-[5%]">
+    <div class="fixed h-100 top-7 left-7 w-[5%]" id="logo1">
       <img src="src/image/Slide 1/logo.png" alt="" fetchpriority="high"/>
     </div>
-    <div class="fixed h-100 top-4 right-7 w-[9%]">
+    <div class="fixed h-100 top-4 right-7 w-[9%]" id="logo2">
       <img src="src/image/Slide 1/Logo Maspion.png" alt="" fetchpriority="high"/>
     </div>
-    <div class="fixed h-100">
+    <div class="fixed top-[-20%] h-100" id="judul">
       <img src="src/image/Slide 1/judul.png" alt="" fetchpriority="high"/>
     </div>
     <div class="absolute h-100" id="gedung">
@@ -33,8 +33,19 @@
     <div class="absolute h-100" id="drone">
       <img src="src/image/Slide 1/drone.png" alt="" fetchpriority="high" />
     </div>
+    <div class="absolute z-[5] flex justify-center h-full w-full items-center" id="btn">
+      <a href="kontolll" class="rounded-md bg-white px-5 py-1 text-center text-[70%] align-middle hover:bg-sky-500 font-bold">Download Now</a>
+      <a onClick="togglePlay()"  class="rounded-md ml-1 bg-white px-5 py-1 text-center align-middle hover:bg-sky-500 font-bold">
+        <img src="src/image/Slide 1/047-mute.svg" id="kontol" class="h-4" alt="">
+      </a>
+      <audio
+        id="myAudio"
+        src="src/image/music/melodyloops-preview-innovation-and-technology-5m0s.mp3"
+        preload="auto"
+      ></audio>
+    </div>
     <div class="absolute h-100 bottom-[-2px] z-[6]">
-      <img src="src/image/Slide 1/gradasi.png" alt="" fetchpriority="high"/>
+      <img src="src/image/Slide 1/gradasi2.png" alt="" fetchpriority="high"/>
     </div>
     <div class="h-100">
       <img src="src/image/Slide 1/angin_.gif" style="mix-blend-mode: screen" alt="" fetchpriority="high"/>
@@ -183,10 +194,37 @@
     </div>
 
   </section>
-  <script>
+
+  <script type="text/javascript">
+    var myAudio = document.getElementById("myAudio");
+    var gambar = document.getElementById("kontol");
+    var isPlaying = false;
+    window.onload = myAudio.play();
+    
+
+    function togglePlay() {
+      if (isPlaying) {
+        myAudio.pause();
+        gambar.src = "src/image/Slide 1/057-speaker.svg";
+      } else {
+        myAudio.play();
+        gambar.src = "src/image/Slide 1/047-mute.svg";
+      }
+    }
+    myAudio.onplaying = function () {
+      isPlaying = true;
+    };
+    myAudio.onpause = function () {
+      isPlaying = false;
+    };
+  </script>
+  <!-- <script>
     let background = document.getElementById("background");
     let borobudur = document.getElementById("borobudur");
-    // let btn = document.getElementById("btn");
+    let btn = document.getElementById("btn");
+    let judul = document.getElementById("judul");
+    let logo1 = document.getElementById("logo1");
+    let logo2 = document.getElementById("logo2");
     // let music = document.getElementById("music");
     let gedung = document.getElementById("gedung");
     let covid = document.getElementById("covid");
@@ -194,18 +232,21 @@
 
     window.addEventListener("scroll", function () {
       let value = window.scrollY;
-      background.style.right = value * 0.25 + "px";
+      background.style.top = value * 0.25 + "px";
       borobudur.style.top = value * 0 + "px";
       gedung.style.top = value * 0.5 + "px";
       covid.style.top = value * 0.2 + "px";
       drone.style.top = value * 0.3 + "px";
-      // btn.style.marginTop = value * 2 + "px";
+      btn.style.marginTop = value * 2 + "px";
+      judul.style.marginTop = value * 0.2 + "px";
+      logo1.style.marginTop = value * 0.2 + "px";
+      logo2.style.marginTop = value * 2 + "px";
       // music.style.marginTop = value * 2 + "px";
     });
 
-    const element = document.getElementById("lanjut");
+    const element = document.getElementById("utama");
     element.scrollIntoView();
-  </script>
+  </script> -->
 </body>
 
 </html>
