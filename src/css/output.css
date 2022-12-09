@@ -797,6 +797,10 @@ video {
   flex-direction: column;
 }
 
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
 .items-start{
   align-items: flex-start;
 }
@@ -1065,8 +1069,16 @@ video {
     width: 50%;
   }
 
+  .md\:flex-none{
+    flex: none;
+  }
+
   .md\:flex-row{
     flex-direction: row;
+  }
+
+  .md\:flex-wrap{
+    flex-wrap: wrap;
   }
 
   .md\:px-1{
